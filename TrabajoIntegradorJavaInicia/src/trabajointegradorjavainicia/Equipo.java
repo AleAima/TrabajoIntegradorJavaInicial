@@ -9,6 +9,20 @@ package trabajointegradorjavainicia;
  * @author aleai
  */
 public class Equipo {
-    String nombre;
-    String descripcion;
+    private String nombre;
+    private String descripcion;
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @return the descripcion
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
 }

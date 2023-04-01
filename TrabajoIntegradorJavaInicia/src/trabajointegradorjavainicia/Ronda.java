@@ -9,8 +9,22 @@ package trabajointegradorjavainicia;
  * @author aleai
  */
 public class Ronda {
-    String ronda;
-    Partido[]Partidos;
+    private String ronda;
+    private Partido[]Partidos;
+
+    /**
+     * @return the ronda
+     */
+    public String getRonda() {
+        return ronda;
+    }
+
+    /**
+     * @return the Partidos
+     */
+    public Partido[] getPartidos() {
+        return Partidos;
+    }
     
     
 }

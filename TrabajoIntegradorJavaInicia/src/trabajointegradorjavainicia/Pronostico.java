@@ -9,6 +9,20 @@ package trabajointegradorjavainicia;
  * @author aleai
  */
 public class Pronostico {
-    Partido partido;
-    //enum resultado;
+    private Partido partido;
+    private ResultadoEnum resultado;
+
+    /**
+     * @return the partido
+     */
+    public Partido getPartido() {
+        return partido;
+    }
+
+    /**
+     * @return the resultado
+     */
+    public ResultadoEnum getResultado() {
+        return resultado;
+    }
 }
