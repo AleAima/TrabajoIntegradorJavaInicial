@@ -4,13 +4,26 @@
  */
 package trabajointegradorjavainicia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author aleai
  */
 public class Ronda {
     private String ronda;
-    private Partido[]Partidos;
+    private List<Partido> partidos;
+    
+    public Ronda(String Ronda){
+        this.ronda=ronda;
+        this.partidos=new ArrayList<Partido>();
+    }
+    
+    public void AgregarPartido(Equipo equipoUno, Equipo equipoDos){
+        Partido partido= new Partido(equipoUno,equipoDos);
+        partidos.add(partido);
+    }
 
     /**
      * @return the ronda
@@ -22,8 +35,8 @@ public class Ronda {
     /**
      * @return the Partidos
      */
-    public Partido[] getPartidos() {
-        return Partidos;
+    public List<Partido> getPartidos() {
+        return partidos;
     }
     
     

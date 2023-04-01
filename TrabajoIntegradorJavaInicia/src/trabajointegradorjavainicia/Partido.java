@@ -13,7 +13,27 @@ public class Partido {
     private Equipo NumeroDos;
     private int golesEquipoUno;
     private int golesEquipoDos;
+    
+    public Partido(Equipo equipoUno, Equipo equipoDos){
+        this.numeroUno=equipoUno;
+        this.NumeroDos=equipoDos;
+        this.golesEquipoUno=0;
+        this.golesEquipoDos=0;
+    }
 
+    
+    public ResultadoEnum decirResulado(){
+        
+        if(golesEquipoUno>golesEquipoDos){
+            return ResultadoEnum.GANA_EQUIPO_1;
+        }
+        else if(golesEquipoDos>golesEquipoUno){
+            return ResultadoEnum.GANA_EQUIPO_2;
+        }
+        else{
+            return ResultadoEnum.EMPATE;
+        }        
+    }
     /**
      * @return the numeroUno
      */
@@ -22,24 +42,10 @@ public class Partido {
     }
 
     /**
-     * @param numeroUno the numeroUno to set
-     */
-    public void setNumeroUno(Equipo numeroUno) {
-        this.numeroUno = numeroUno;
-    }
-
-    /**
      * @return the NumeroDos
      */
     public Equipo getNumeroDos() {
         return NumeroDos;
-    }
-
-    /**
-     * @param NumeroDos the NumeroDos to set
-     */
-    public void setNumeroDos(Equipo NumeroDos) {
-        this.NumeroDos = NumeroDos;
     }
 
     /**

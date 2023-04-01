@@ -11,6 +11,11 @@ package trabajointegradorjavainicia;
 public class Pronostico {
     private Partido partido;
     private ResultadoEnum resultado;
+    
+    public Pronostico(Partido partido, ResultadoEnum resultado){
+        this.partido=partido;
+        this.resultado=resultado;
+    }
 
     /**
      * @return the partido
