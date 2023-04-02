@@ -13,29 +13,22 @@ import java.util.List;
  */
 public class Ronda {
     private String ronda;
-    private List<Partido> partidos;
+    private Partido [] partidos;
     
-    public Ronda(String Ronda){
+    public Ronda(String ronda){
         this.ronda=ronda;
-        this.partidos=new ArrayList<Partido>();
+        this.partidos=new Partido[2];
     }
     
-    public void AgregarPartido(Equipo equipoUno, Equipo equipoDos){
-        Partido partido= new Partido(equipoUno,equipoDos);
-        partidos.add(partido);
+    public void AgregarRonda(Partido[]partidos){
+        this.partidos=partidos;
     }
-
-    /**
-     * @return the ronda
-     */
+    
     public String getRonda() {
         return ronda;
     }
 
-    /**
-     * @return the Partidos
-     */
-    public List<Partido> getPartidos() {
+    public Partido [] getPartidos() {
         return partidos;
     }
     

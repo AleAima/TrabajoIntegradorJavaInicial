@@ -9,17 +9,25 @@ package trabajointegradorjavainicia;
  * @author aleai
  */
 public class Partido {
-    private Equipo numeroUno;
-    private Equipo NumeroDos;
+    private Equipo equipoUno;
+    private Equipo equipoDos;
     private int golesEquipoUno;
     private int golesEquipoDos;
     
-    public Partido(Equipo equipoUno, Equipo equipoDos){
-        this.numeroUno=equipoUno;
-        this.NumeroDos=equipoDos;
+    public Partido(Equipo equipoUno, int golesEquipoUno, int golesEquipoDos, Equipo equipoDos){
+        this.equipoUno=equipoUno;
+        this.equipoDos=equipoDos;
+        this.golesEquipoUno=golesEquipoUno;
+        this.golesEquipoDos=golesEquipoDos;
+    }
+    
+        public Partido(Equipo equipoUno, Equipo equipoDos){
+        this.equipoUno=equipoUno;
+        this.equipoDos=equipoDos;
         this.golesEquipoUno=0;
         this.golesEquipoDos=0;
     }
+    
 
     
     public ResultadoEnum decirResulado(){
@@ -37,15 +45,16 @@ public class Partido {
     /**
      * @return the numeroUno
      */
-    public Equipo getNumeroUno() {
-        return numeroUno;
+    public Equipo getEquipoUno() {
+        return equipoUno;
     }
+    
 
     /**
      * @return the NumeroDos
      */
-    public Equipo getNumeroDos() {
-        return NumeroDos;
+    public Equipo getEquipoDos() {
+        return equipoDos;
     }
 
     /**
@@ -54,6 +63,7 @@ public class Partido {
     public int getGolesEquipoUno() {
         return golesEquipoUno;
     }
+
 
     /**
      * @param golesEquipoUno the golesEquipoUno to set
@@ -74,6 +84,13 @@ public class Partido {
      */
     public void setGolesEquipoDos(int golesEquipoDos) {
         this.golesEquipoDos = golesEquipoDos;
+    }
+    
+    public String [] formatoDeCSV(){
+        String []datos={equipoUno.getNombre(),String.valueOf(golesEquipoUno),
+                        String.valueOf(golesEquipoDos),equipoDos.getNombre()};
+                        
+        return datos;
     }
     
     

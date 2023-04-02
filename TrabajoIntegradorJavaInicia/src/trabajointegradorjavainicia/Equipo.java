@@ -16,16 +16,15 @@ public class Equipo {
         this.nombre=nombre;
         this.descripcion=descripcion;
     }
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
+    
+    public Equipo(String nombre){
+        this.nombre=nombre;
     }
 
-    /**
-     * @return the descripcion
-     */
+    public String getNombre() {
+        return this.nombre;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
