@@ -29,7 +29,7 @@ public class Partido {
     }
     
 
-    
+    // retona el resultado del partido
     public ResultadoEnum decirResulado(){
         
         if(golesEquipoUno>golesEquipoDos){
@@ -42,56 +42,44 @@ public class Partido {
             return ResultadoEnum.EMPATE;
         }        
     }
-    /**
-     * @return the numeroUno
-     */
+    
     public Equipo getEquipoUno() {
         return equipoUno;
     }
     
-
-    /**
-     * @return the NumeroDos
-     */
+     public void setEquipoUno(Equipo equipo) {
+        this.equipoUno=equipo;
+    }
     public Equipo getEquipoDos() {
         return equipoDos;
     }
+    
+    public void setEquipoDos(Equipo equipo) {
+        equipoDos=equipo;
+    }
 
-    /**
-     * @return the golesEquipoUno
-     */
     public int getGolesEquipoUno() {
         return golesEquipoUno;
     }
 
-
-    /**
-     * @param golesEquipoUno the golesEquipoUno to set
-     */
     public void setGolesEquipoUno(int golesEquipoUno) {
         this.golesEquipoUno = golesEquipoUno;
     }
 
-    /**
-     * @return the golesEquipoDos
-     */
     public int getGolesEquipoDos() {
         return golesEquipoDos;
     }
 
-    /**
-     * @param golesEquipoDos the golesEquipoDos to set
-     */
     public void setGolesEquipoDos(int golesEquipoDos) {
         this.golesEquipoDos = golesEquipoDos;
     }
     
+    //Metodo Para que me devuta el array de string que necesito para 
+    //guardar en el formato CSV
     public String [] formatoDeCSV(){
         String []datos={equipoUno.getNombre(),String.valueOf(golesEquipoUno),
                         String.valueOf(golesEquipoDos),equipoDos.getNombre()};
                         
         return datos;
     }
-    
-    
 }

@@ -4,8 +4,6 @@
  */
 package trabajointegradorjavainicia;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -26,6 +24,10 @@ public class Ronda {
     
     public String getRonda() {
         return ronda;
+    }
+    
+       public void setRonda(String ronda) {
+        this.ronda=ronda;
     }
 
     public Partido [] getPartidos() {

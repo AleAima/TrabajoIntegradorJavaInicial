@@ -17,39 +17,59 @@ public class TrabajoIntegradorJavaInicia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        String nombreArchivo="Ronda.csv";
+        
+        
+        String nombreArchivo="Ronda.csv"; //Nombre del Archivo a crear
+        
+        //Array de 2 partidos para crear una ronda
         Partido [] partidos=new Partido [2];
         
         
-        Equipo equipoUno= new Equipo("Argentina");
-        Equipo equipoDos= new Equipo("Arabia Saudita");
+        Equipo equipoUno= new Equipo("Argentina"); //Nombre del primer equipo para el partido 1
+        Equipo equipoDos= new Equipo("Arabia Saudita"); // Nombre del segundo equipo para el partido 1
+     
+        //Creo el primer partido
         Partido partidoUno= new Partido (equipoUno, 3, 2, equipoDos);
         
+        //guardo en la pocicion 0 el primer Parido Disputado 
         partidos[0]=partidoUno;
         
+        //Armo el otro Partido y lo guardo en la pocicion 1
         Equipo equipoTres= new Equipo("Polonia");
         Equipo equipoCuatro= new Equipo("Mexico");
         Partido partidoDos= new Partido (equipoTres, 1, 1, equipoCuatro);
         
         partidos[1]=partidoDos;
         
+        //LLamo al metodo que crea el archivo CSV 
         ArchivoCSV.CrearPartidosCSV(nombreArchivo,partidos);
         
-        String nombreArchivoPronostico="Pronostico_Persona.csv";
+        //----------------------------Creo un archivo CSV Pronostico-----------------------------//
+        
+        String nombreArchivoPronostico="Pronostico_Persona.csv";//Nombre de como se va a llamar el archivo CSV
+        
+        //Creo un array de pronosticos
         Pronostico [] persona= new Pronostico[2];
         
-        
+        //Creo los Pronosticos y los guardo en el array
         Pronostico pronosticoPartidoUno= new Pronostico(partidoUno,ResultadoEnum.GANA_EQUIPO_1);
         Pronostico pronosticoPartidoDos= new Pronostico(partidoDos,ResultadoEnum.EMPATE);
         
         persona[0]=pronosticoPartidoUno;
         persona[1]=pronosticoPartidoDos;
         
+        
+        //llamo Al metodo que crea El Archivo CSV con pronostico
         ArchivoCSV.CrearPronosticosCSV(nombreArchivoPronostico, persona);
         
+        
+        //---------------------------------Leer El Archivo CSV---------------------------------------------//
+        
+        //Aguardo en una Lista Los Pronosticos del Archivo Leido y los de los resultados de los partidos
         List<Pronostico> pronosticos=ArchivoCSV.ImportarPronosticoCSV(nombreArchivoPronostico);
         List<Partido> resultados=ArchivoCSV.ImportarResultadosCSV(nombreArchivo);
+        
+        //Recorro los Pronosticos y los partidos para ver los Resultados y los muestro por pantalla 
         int acerto=0;
         for(int indice=0; indice<pronosticos.size();indice++){
             if (pronosticos.get(indice).getResultado().equals(resultados.get(indice).decirResulado())){

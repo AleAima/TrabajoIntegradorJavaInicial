@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package trabajointegradorjavainicia;
 
 import com.csvreader.CsvReader;
@@ -20,8 +17,13 @@ import java.util.List;
  * @author aleai
  */
 public class ArchivoCSV {
+    
+    //Crea un Archivo de Partidos disputados con el nombre que se pasa por parametro 
+    //y una ronda de partidos por eso el array 
        public static void CrearPartidosCSV(String nombreDelArchivo, Partido [] partidos){
         boolean existe = new File(nombreDelArchivo).exists(); // Verifica si existe
+        
+        //si existe lo borra 
            if(existe) {
             File archivoDePartidos = new File(nombreDelArchivo);
             archivoDePartidos.delete();
@@ -38,7 +40,7 @@ public class ArchivoCSV {
             
             archivoCSV.endRecord(); // Deja de escribir en el archivo
             
-            // Recorremos la lista y lo insertamos en el archivo
+            // Recorremos la lista y la escribimos en el archivo
             for(Partido partido : partidos) {
                 String [] datos= partido.formatoDeCSV();
                 archivoCSV.writeRecord(datos);
@@ -54,6 +56,8 @@ public class ArchivoCSV {
     }
         public static void CrearPronosticosCSV(String nombreDelArchivo, Pronostico [] pronosticos){
         boolean existe = new File(nombreDelArchivo).exists(); // Verifica si existe
+        
+        //si existe lo elimino
            if(existe) {
             File archivoDePronosticos = new File(nombreDelArchivo);
             archivoDePronosticos.delete();
@@ -71,7 +75,7 @@ public class ArchivoCSV {
             
             archivoCSV.endRecord(); // Deja de escribir en el archivo
             
-            // Recorremos la lista y lo insertamos en el archivo
+            // Recorremos la lista y la escribimos en el archivo
             for(Pronostico pronostico : pronosticos) {
                 String [] datos= pronostico.formatoDeCSV(pronostico.getResultado());
                 archivoCSV.writeRecord(datos);
@@ -87,8 +91,9 @@ public class ArchivoCSV {
     }
         public static List<Partido> ImportarResultadosCSV(String nombreDelArchivo) {
         try{
-            List<Partido> partidos = new ArrayList<Partido>(); // Lista donde guardaremos los datos del archivo
+            List<Partido> partidos = new ArrayList<>(); // Lista donde guardaremos los datos del archivo
             
+            // creamos una variable de tipo CsvReader para leer el archivo
             CsvReader leerPartidos = new CsvReader(nombreDelArchivo);
             leerPartidos.readHeaders();
             
@@ -100,7 +105,7 @@ public class ArchivoCSV {
                 String leerEquipoDos = leerPartidos.get(3);
                 
                 Equipo equipoUno= new Equipo (leerEquipoUno);
-                 Equipo equipoDos= new Equipo (leerEquipoDos);
+                Equipo equipoDos= new Equipo (leerEquipoDos);
                 partidos.add(new Partido(equipoUno, golesEquipoUno, golesEquipoDos, equipoDos)); // Añade la informacion a la lista
             }
             
@@ -124,7 +129,7 @@ public class ArchivoCSV {
     }
         public static List<Pronostico> ImportarPronosticoCSV(String nombreDelArchivo) {
         try{
-            List<Pronostico> pronosticos = new ArrayList<Pronostico>(); // Lista donde guardaremos los datos del archivo
+            List<Pronostico> pronosticos = new ArrayList<>(); // Lista donde guardaremos los datos del archivo
             
             CsvReader leerPronosticos = new CsvReader(nombreDelArchivo);
             leerPronosticos.readHeaders();
@@ -154,13 +159,13 @@ public class ArchivoCSV {
             }
             
             leerPronosticos.close(); // Cierra el archivo
+            
              // Recorremos la lista y la mostramos en la pantalla
             for(Pronostico pronostico : pronosticos) {
                 System.out.println(pronostico.getPartido().getEquipoUno().getNombre()+ " , "
                     + pronostico.getPartido().getEquipoDos().getNombre() + " , "
                     + pronostico.getResultado().toString());
-            }
-            
+            }           
             
             return pronosticos;
         } catch(FileNotFoundException e) {

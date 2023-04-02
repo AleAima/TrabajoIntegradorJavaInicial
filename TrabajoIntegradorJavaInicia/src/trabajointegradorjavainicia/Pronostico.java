@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package trabajointegradorjavainicia;
 
-/**
- *
- * @author aleai
- */
 public class Pronostico {
     private Partido partido;
     private ResultadoEnum resultado;
@@ -20,11 +12,21 @@ public class Pronostico {
     public Partido getPartido() {
         return partido;
     }
+    
+      public void SetPartido(Partido partido) {
+        this.partido=partido;
+    }
 
     public ResultadoEnum getResultado() {
         return resultado;
     }
     
+    public void setResultado(ResultadoEnum resultado) {
+        this.resultado= resultado;
+    }
+    
+    //Metodo Para que me devuta el array de string que necesito para 
+    //guardar en el formato CSV
     public String [] formatoDeCSV(ResultadoEnum resultado){
         String []datos=new String[5];
   
