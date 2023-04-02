@@ -4,6 +4,9 @@
  */
 package trabajointegradorjavainicia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -11,15 +14,18 @@ package trabajointegradorjavainicia;
  */
 public class Ronda {
     private String ronda;
-    private Partido [] partidos;
+    private final List<Partido> partidos;
     
     public Ronda(String ronda){
         this.ronda=ronda;
-        this.partidos=new Partido[2];
+        this.partidos=new ArrayList<>();
     }
     
-    public void AgregarRonda(Partido[]partidos){
-        this.partidos=partidos;
+    public void AgregarRonda(List<Partido> partidos){
+        for(Partido partido : partidos){
+           this.partidos.add(partido);
+        }
+        
     }
     
     public String getRonda() {
@@ -30,9 +36,15 @@ public class Ronda {
         this.ronda=ronda;
     }
 
-    public Partido [] getPartidos() {
+    public List<Partido> getPartidos() {
         return partidos;
     }
     
+    public void agregarPartidos(List<Partido>partidos){
+        for(Partido partido: partidos){
+             this.partidos.add(partido);
+        }
+       
+    }
     
 }

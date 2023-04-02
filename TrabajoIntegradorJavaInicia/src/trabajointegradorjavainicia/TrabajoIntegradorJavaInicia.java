@@ -21,8 +21,8 @@ public class TrabajoIntegradorJavaInicia {
         
         String nombreArchivo="Ronda.csv"; //Nombre del Archivo a crear
         
-        //Array de 2 partidos para crear una ronda
-        Partido [] partidos=new Partido [2];
+        //Lista de partidos para crear una ronda
+        List<Partido> partidos=new ArrayList<>();
         
         
         Equipo equipoUno= new Equipo("Argentina"); //Nombre del primer equipo para el partido 1
@@ -31,15 +31,15 @@ public class TrabajoIntegradorJavaInicia {
         //Creo el primer partido
         Partido partidoUno= new Partido (equipoUno, 3, 2, equipoDos);
         
-        //guardo en la pocicion 0 el primer Parido Disputado 
-        partidos[0]=partidoUno;
+        //Agrego A la Lista el primer Partido
+        partidos.add(partidoUno);
         
         //Armo el otro Partido y lo guardo en la pocicion 1
         Equipo equipoTres= new Equipo("Polonia");
         Equipo equipoCuatro= new Equipo("Mexico");
         Partido partidoDos= new Partido (equipoTres, 1, 1, equipoCuatro);
         
-        partidos[1]=partidoDos;
+       partidos.add(partidoDos);
         
         //LLamo al metodo que crea el archivo CSV 
         ArchivoCSV.CrearPartidosCSV(nombreArchivo,partidos);
@@ -49,14 +49,14 @@ public class TrabajoIntegradorJavaInicia {
         String nombreArchivoPronostico="Pronostico_Persona.csv";//Nombre de como se va a llamar el archivo CSV
         
         //Creo un array de pronosticos
-        Pronostico [] persona= new Pronostico[2];
+        List<Pronostico> persona = new ArrayList<>();
         
         //Creo los Pronosticos y los guardo en el array
         Pronostico pronosticoPartidoUno= new Pronostico(partidoUno,ResultadoEnum.GANA_EQUIPO_1);
         Pronostico pronosticoPartidoDos= new Pronostico(partidoDos,ResultadoEnum.EMPATE);
         
-        persona[0]=pronosticoPartidoUno;
-        persona[1]=pronosticoPartidoDos;
+        persona.add(pronosticoPartidoUno);
+        persona.add(pronosticoPartidoDos);
         
         
         //llamo Al metodo que crea El Archivo CSV con pronostico

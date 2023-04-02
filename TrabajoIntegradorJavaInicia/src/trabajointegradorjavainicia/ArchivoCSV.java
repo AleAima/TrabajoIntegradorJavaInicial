@@ -20,7 +20,7 @@ public class ArchivoCSV {
     
     //Crea un Archivo de Partidos disputados con el nombre que se pasa por parametro 
     //y una ronda de partidos por eso el array 
-       public static void CrearPartidosCSV(String nombreDelArchivo, Partido [] partidos){
+       public static void CrearPartidosCSV(String nombreDelArchivo, List<Partido>partidos){
         boolean existe = new File(nombreDelArchivo).exists(); // Verifica si existe
         
         //si existe lo borra 
@@ -54,7 +54,7 @@ public class ArchivoCSV {
             e.printStackTrace();
         }    
     }
-        public static void CrearPronosticosCSV(String nombreDelArchivo, Pronostico [] pronosticos){
+        public static void CrearPronosticosCSV(String nombreDelArchivo, List<Pronostico> pronosticos){
         boolean existe = new File(nombreDelArchivo).exists(); // Verifica si existe
         
         //si existe lo elimino
