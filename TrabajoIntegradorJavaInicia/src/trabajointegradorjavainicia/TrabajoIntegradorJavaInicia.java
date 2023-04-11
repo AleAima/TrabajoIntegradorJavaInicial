@@ -67,7 +67,7 @@ public class TrabajoIntegradorJavaInicia {
         
         //Aguardo en una Lista Los Pronosticos del Archivo Leido y los de los resultados de los partidos
         List<Pronostico> pronosticos=ArchivoCSV.ImportarPronosticoCSV(nombreArchivoPronostico);
-        List<Partido> resultados=ArchivoCSV.ImportarResultadosCSV(nombreArchivo);
+         List<Partido> resultados=ArchivoCSV.ImportarResultadosCSV(nombreArchivo);
         
         //Recorro los Pronosticos y los partidos para ver los Resultados y los muestro por pantalla 
         int acerto=0;
